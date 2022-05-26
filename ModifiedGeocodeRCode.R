@@ -4,6 +4,9 @@ library(photon)
 library(stringr)
 library(data.table)
 library(haven)
+library(reticulate)
+path_to_python <- "/Library/Developer/CommandLineTools/usr/bin/python3"
+use_python(path_to_python)
 
 #SET YOUR WORKING DIRECTORY
 setwd("/Users/human/Downloads/GeoCoding")
@@ -116,5 +119,6 @@ for(i in 1:1){
     rows = rows + load_rows
   }
   write.csv(searches, ("searches"), row.names = FALSE)
+  py_run_file("geocode.py")
   gc()
 }
