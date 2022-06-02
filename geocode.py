@@ -85,7 +85,7 @@ def main():
     # read the searches.csv (contains all the queries we need)
     df = pd.read_csv("searches")
     allLoc = df.loc[:, ['query']].to_numpy()
-    eachLocArrSize = math.ceil(float(len(allLoc)/len(servers)))
+    eachLocArrSize = math.ceil(len(allLoc)/len(servers))
     locSplit = chunks(allLoc, eachLocArrSize)
     with concurrent.futures.ThreadPoolExecutor() as executor:
         results = executor.map(geocode, locSplit, servers)
