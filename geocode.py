@@ -20,7 +20,7 @@ def geoRequest(loc, server):
     r = r.json()
     r.update({"location": loc})
     finish = time.perf_counter()
-    print(f'geoRequest for {loc} \n finished in {round(finish-start, 2)} seconds(s)')
+    print(f'geoRequest for {loc} \nfinished in {round(finish-start, 2)} seconds(s)')
     return r
 
 
