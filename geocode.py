@@ -12,12 +12,15 @@ servers = ['localhost:2322']
 
 
 def geoRequest(loc, server):
+    start = time.perf_counter()
     params = {'q': loc, 'limit': 30}
     url = f'http://{server}/api'
     r = http.get(url, params=params,
                  headers={'user-agent': 'geocode-tester'})
     r = r.json()
     r.update({"location": loc})
+    finish = time.perf_counter()
+    print(f'geoRequest for {loc} \n finished in {round(finish-start, 2)} seconds(s)')
     return r
 
 
