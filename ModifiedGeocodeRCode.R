@@ -1,3 +1,4 @@
+## GIVEN CODE
 library(fst)
 library(rjson)
 library(photon)
@@ -113,6 +114,7 @@ for(i in 1:1){
     if (load_rows+rows-1>max_row) {load_rows = max_row +1-rows}
     
     search <- addr[rows:(load_rows+rows-1),]$addr2
+    ## MODIFICATIONS HERE
     search <- data.frame(query=search)
     print(search)
     searches <- rbind(searches,search)
